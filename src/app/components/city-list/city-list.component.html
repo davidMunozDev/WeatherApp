@@ -1,0 +1,49 @@
+<div class="space-y-4">
+  @if (loading) {
+  <div class="flex justify-center items-center py-8">
+    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+  </div>
+  } @else if (hasSearched && cities.length === 0) {
+  <div class="text-center py-8 text-gray-500">
+    <p>No cities found</p>
+  </div>
+  } @else if (cities.length > 0) {
+  <div class="grid gap-4">
+    @for (city of cities; track city.lat + city.lon) {
+    <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
+      <div class="flex justify-between items-center">
+        <div class="flex-1 cursor-pointer" (click)="onSelectCity(city)">
+          <h3 class="text-xl font-semibold text-gray-800">{{ city.name }}</h3>
+          <p class="text-gray-600">{{ city.state ? city.state + ', ' : '' }}{{ city.country }}</p>
+          <p class="text-sm text-gray-500 mt-1">
+            Lat: {{ city.lat.toFixed(4) }}, Lon: {{ city.lon.toFixed(4) }}
+          </p>
+        </div>
+        @if (showRemoveButton) {
+        <button
+          (click)="onRemoveCity(city)"
+          class="ml-4 text-red-500 hover:text-red-700 transition-colors duration-300"
+          aria-label="Remove city"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+            />
+          </svg>
+        </button>
+        }
+      </div>
+    </div>
+    }
+  </div>
+  }
+</div>
