@@ -1,59 +1,72 @@
-# WeatherApp
+# WeatherApp 🌤️
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
+Una aplicación web moderna para consultar el clima de ciudades de todo el mundo, construida con Angular 21.
 
-## Development server
+## 🚀 Características
 
-To start a local development server, run:
+- 🔍 Búsqueda de ciudades en tiempo real
+- 🌡️ Información meteorológica detallada (temperatura, humedad, viento, etc.)
+- ⭐ Sistema de favoritos con persistencia en LocalStorage
+- 📱 Diseño responsive con Tailwind CSS
+- 🌍 Soporte multiidioma (español)
+
+## 🔧 Instalación
+
+1. **Clona el repositorio**
 
 ```bash
+git clone https://github.com/davidMunozDev/WeatherApp.git
+cd WeatherApp
+```
+
+2. **Instala las dependencias**
+
+```bash
+npm install
+```
+
+3. **Configura tu API Key**
+
+   a. Copia el archivo de ejemplo de environment:
+
+   ```bash
+   cp src/environments/environment.example.ts src/environments/environment.ts
+   cp src/environments/environment.example.ts src/environments/environment.prod.ts
+   ```
+
+   b. Obtén tu API Key gratuita:
+
+   - Ve a [OpenWeatherMap](https://openweathermap.org/api)
+   - Crea una cuenta o inicia sesión
+   - Ve a "API Keys" y genera una nueva key
+
+   c. Abre `src/environments/environment.ts` y reemplaza `TU_API_KEY_AQUI` con tu API key:
+
+   ```typescript
+   export const environment = {
+     production: false,
+     openWeatherApiKey: 'tu_api_key_real_aqui',
+   };
+   ```
+
+   d. Haz lo mismo en `src/environments/environment.prod.ts` para producción.
+
+## ▶️ Ejecutar la aplicación
+
+### Modo desarrollo
+
+```bash
+npm start
+# o también
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+La aplicación estará disponible en `http://localhost:4200/`
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Build para producción
 
 ```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
+npm run build
+# o también
 ng build
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

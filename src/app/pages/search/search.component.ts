@@ -44,18 +44,18 @@ export class SearchComponent {
   }
 
   onCitySelected(city: City) {
-    // Navegar a la página de detalle con las coordenadas
     this.router.navigate(['/detail'], {
       queryParams: {
         lat: city.lat,
         lon: city.lon,
         name: city.name,
+        country: city.country,
+        state: city.state || '',
       },
     });
   }
 
   onCityRemoved(city: City) {
-    // Remover ciudad de la lista de resultados
     this.cities = this.cities.filter((c) => c.lat !== city.lat || c.lon !== city.lon);
   }
 }

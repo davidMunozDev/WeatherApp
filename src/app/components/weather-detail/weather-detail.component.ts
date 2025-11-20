@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WeatherData } from '../../services/weather.service';
 
@@ -19,6 +19,12 @@ export class WeatherDetailComponent {
   @Input() weatherData: WeatherData | null = null;
   @Input() loading: boolean = false;
   @Input() showFavoriteButton: boolean = true;
+  @Input() isFavorite: boolean = false;
+  @Output() toggleFavorite = new EventEmitter<void>();
+
+  onToggleFavorite() {
+    this.toggleFavorite.emit();
+  }
 
   get mainMetrics(): WeatherMetric[] {
     if (!this.weatherData) return [];

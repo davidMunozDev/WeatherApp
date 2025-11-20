@@ -3,8 +3,19 @@
     <h1 class="text-4xl font-bold text-gray-800 mb-4">Favorites Page</h1>
     <p class="text-lg text-gray-600 mb-6">Your favorite cities</p>
 
+    @if (favoriteCities.length === 0) {
     <div class="bg-white rounded-lg shadow-md p-6">
-      <p class="text-gray-500">No favorites yet. Add some cities to your favorites!</p>
+      <p class="text-gray-500 text-center">No favorites yet. Add some cities to your favorites!</p>
     </div>
+    } @else {
+    <app-city-list
+      [cities]="favoriteCities"
+      [loading]="false"
+      [hasSearched]="true"
+      [showRemoveButton]="true"
+      (citySelected)="onCitySelected($event)"
+      (cityRemoved)="onCityRemoved($event)"
+    ></app-city-list>
+    }
   </div>
 </div>

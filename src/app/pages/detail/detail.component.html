@@ -5,7 +5,13 @@
     <p class="text-lg text-gray-600 mb-8">Showing weather for {{ cityName }}</p>
     }
 
-    <app-weather-detail [weatherData]="weatherData" [loading]="loading" [showFavoriteButton]="true">
+    <app-weather-detail
+      [weatherData]="weatherData"
+      [loading]="loading"
+      [showFavoriteButton]="true"
+      [isFavorite]="isFavorite"
+      (toggleFavorite)="toggleFavorite()"
+    >
     </app-weather-detail>
   </div>
 </div>
