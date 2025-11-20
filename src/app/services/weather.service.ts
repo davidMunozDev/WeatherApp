@@ -58,7 +58,7 @@ export interface WeatherData {
 export class WeatherService {
   private readonly geoUrl = 'https://api.openweathermap.org/geo/1.0/direct';
   private readonly weatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
-  private readonly apiKey = '983021c82d2d0c864d9774f4cb21847e';
+  private readonly apiKey = '983021c82d2d0c864d9774f4cb21847e'; // Esto se debe de mover a un .env
 
   constructor(private http: HttpClient) {}
 

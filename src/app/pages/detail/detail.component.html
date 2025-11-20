@@ -1,10 +1,11 @@
 <div class="container mx-auto px-4 py-8">
   <div class="max-w-4xl mx-auto">
-    <h1 class="text-4xl font-bold text-gray-800 mb-4">Detail Page</h1>
-    <p class="text-lg text-gray-600 mb-6">Weather details for selected city</p>
+    <h1 class="text-4xl font-bold text-gray-800 mb-6">Weather Details</h1>
+    @if (cityName) {
+    <p class="text-lg text-gray-600 mb-8">Showing weather for {{ cityName }}</p>
+    }
 
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <p class="text-gray-500">Select a city to view weather details</p>
-    </div>
+    <app-weather-detail [weatherData]="weatherData" [loading]="loading" [showFavoriteButton]="true">
+    </app-weather-detail>
   </div>
 </div>
