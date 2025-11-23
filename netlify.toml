@@ -6,6 +6,12 @@
   NODE_VERSION = "20"
   NPM_VERSION = "11.6.2"
 
+# Desactivar el plugin automático de Angular
+[[plugins]]
+  package = "@netlify/angular-runtime"
+  [plugins.inputs]
+    disabled = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
