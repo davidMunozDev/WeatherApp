@@ -1,16 +1,9 @@
 [build]
   command = "npm run build"
-  publish = "dist/weather-app/browser"
+  publish = "dist/WeatherApp/browser"
   
 [build.environment]
   NODE_VERSION = "20"
-  NPM_VERSION = "11.6.2"
-
-# Configurar el plugin de Angular para que use la ruta correcta
-[[plugins]]
-  package = "@netlify/angular-runtime"
-  [plugins.inputs]
-    publish = "dist/weather-app/browser"
 
 [[redirects]]
   from = "/*"
